@@ -1,0 +1,6 @@
+user-management-client/node_modules/*
+user-management-client/dist/*
+
+UserManagementApi/.vs/*
+UserManagementApi/bin/*
+UserManagementApi/obj/*
