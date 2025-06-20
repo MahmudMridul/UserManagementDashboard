@@ -1,0 +1,23 @@
+name: user-management
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin123!
+      - MSSQL_PID=Express
+    ports:
+      - "8001:1433"
+    volumes:
+      - data:/var/opt/mssql
+    container_name: user-management-db
+    healthcheck:
+      test:
+        ["CMD", "/bin/bash", "-c", "echo > /dev/tcp/localhost/1433 || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+volumes:
+  data:
