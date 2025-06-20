@@ -25,9 +25,9 @@ namespace UserManagementApi.Models
         public int FailedLoginAttempts { get; set; } = 0;
 
         public DateTime? LockedUntil { get; set; }
-        //public ICollection<Role> Roles { get; set; } = new List<Role>();
+        public ICollection<Role> Roles { get; set; } = new List<Role>();
 
-        //public ICollection<AuditLog> AuditLogs { get; set; } = new List<AuditLog>();
+        public ICollection<AuditLog> AuditLogs { get; set; } = new List<AuditLog>();
 
         [NotMapped]
         public string FullName => $"{FirstName} {LastName}";

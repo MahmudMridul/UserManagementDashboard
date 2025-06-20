@@ -16,12 +16,12 @@ namespace UserManagementApi.Models
 
         [Required]
         [StringLength(100)]
-        public string EntityType { get; set; } // e.g., "User", "Role", "UserRole"
+        public string EntityType { get; set; } 
 
         public string EntityId { get; set; } // ID of the affected entity
 
         [StringLength(2000)]
-        public string Details { get; set; } // Description of changes or additional context
+        public string Details { get; set; } 
 
         [StringLength(45)]
         public string IpAddress { get; set; }
@@ -34,10 +34,10 @@ namespace UserManagementApi.Models
         public string ErrorMessage { get; set; }
 
         [StringLength(100)]
-        public string AffectedUserName { get; set; } // For easier reporting
+        public string AffectedUserName { get; set; } 
 
         [StringLength(100)]
-        public string AffectedRoleName { get; set; } // For easier reporting
+        public string AffectedRoleName { get; set; } 
 
         [ForeignKey("UserId")]
         public User User { get; set; }

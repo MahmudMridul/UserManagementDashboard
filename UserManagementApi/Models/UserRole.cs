@@ -1,16 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserManagementApi.Models
 {
-    public class UserRole : BaseEntity
+    public class UserRole : IdentityUserRole<string>
     {
-        [Required]
-        public string UserId { get; set; } = null!;
-
-        [Required]
-        public string RoleId { get; set; } = null!;
-
         public DateTime AssignedAt { get; set; } = DateTime.UtcNow;
 
         public string? AssignedBy { get; set; } 
@@ -34,8 +29,5 @@ namespace UserManagementApi.Models
 
         [NotMapped]
         public bool IsExpired => ExpiresAt.HasValue && ExpiresAt < DateTime.UtcNow;
-
-        [NotMapped]
-        public bool IsValid => IsActive && !IsExpired;
     }
 }
